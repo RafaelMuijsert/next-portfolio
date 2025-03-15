@@ -9,21 +9,20 @@
       pkgs = nixpkgs.legacyPackages.${system};
       pname = "portfolio";
       version = "0.1.0";
+      npmDepsHash = "sha256-xoYxK1KdM9i57hayPs+HEXmwQyQBZQz39ctsje+xTbo=";
+      src = ./.;
     in {
       packages.default = pkgs.buildNpmPackage {
-        inherit pname version;
-        src = ./.;
-        npmDepsHash = "sha256-xoYxK1KdM9i57hayPs+HEXmwQyQBZQz39ctsje+xTbo=";
+        inherit pname version npmDepsHash src;
+
         postInstall = ''
           mkdir -p $out/bin
           exe="$out/bin/${pname}";
           lib="$out/lib/node_modules/${pname}";
           cp -r ./.next $lib
-          echo "
-            #!/usr/bin/env bash
-            cd $lib
-            ${pkgs.nodePackages_latest.npm}/bin/npm run start
-          " > $exe
+          echo "#!${pkgs.runtimeShell}" > $exe
+          echo "cd $lib" >> $exe
+          echo "${pkgs.nodePackages_latest.npm}/bin/npm run start" >> $exe
           chmod +x $exe
         '';
       };
