@@ -1,4 +1,4 @@
-import { FileUser, AtSign, Mail } from "lucide-react";
+import { FileUser, AtSign } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 export default function Home() {
@@ -8,11 +8,11 @@ export default function Home() {
         <div>
           <div className="flex flex-row"></div>
           <h1 className="text-5xl">
-            Hi, I'm <strong>Rafael Muijsert</strong>
+            Hi, I&apos;m <strong>Rafael Muijsert</strong>
           </h1>
           <h3 className="text-xl">
-            I'm a <strong>software engineer</strong> who loves to build clean
-            and scalable systems.
+            I&apos;m a <strong>software engineer</strong> who loves to build
+            clean and scalable systems.
           </h3>
           <div className="mt-4">
             <Button className="mr-4" asChild>
