@@ -9,7 +9,7 @@
       pkgs = nixpkgs.legacyPackages.${system};
       pname = "portfolio";
       version = "0.1.0";
-      npmDepsHash = "sha256-fuFBGtlzEsStrE3g6T/jaMEf3uLiqn2vEcnqnLpaJe8=";
+      npmDepsHash = "sha256-N9VYJ4DLUd/7obneglYHZylKZdwkY4ITUt8tw9ZqbYw=";
       src = ./.;
     in {
       packages.default = pkgs.buildNpmPackage {
